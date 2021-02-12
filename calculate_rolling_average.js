@@ -10,6 +10,28 @@ class Ledger {
     this.nums = this.nums.sort((a, b) => a - b);
   }
 
+  heapify(arr, length, i) {
+    let largest = i;
+    let left = i * 2 + 1;
+    let right = left + 1;
+
+    if (arr[left] > arr[largest]) {
+      largest = left;
+    }
+
+    if (arr[right] > arr[largest]) {
+      largest = right;
+    }
+
+    if (largest != i) {
+      [arr[i], arr[largest]] = [arr[largest], arr[i]];
+
+      this.heapify(arr, length, largest);
+    }
+
+    return arr
+  }
+
   // can take in 1 number or multiple numbers
   add(newNum, ...arg) {
     // put the first number into the array
