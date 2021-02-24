@@ -8,6 +8,7 @@ class Ledger {
   // sort helper function
   sort() {
     this.nums = this.nums.sort((a, b) => a - b);
+    this.heapify();
   }
 
   heapify(arr, length, i) {
