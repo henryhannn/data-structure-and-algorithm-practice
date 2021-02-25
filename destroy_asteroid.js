@@ -44,6 +44,8 @@ function destroyAsteroid (asteroids) {
 
   stack.push(asteroids[0]);
   for (let i = 1; i < asteroids.length; i++) {
+    let leftAst = stack[stack.length - 1];
+    let rightAst = asteroids[i];
     if (asteroids[i] < 0 && stack[stack.length - 1] > 0) {
       while (asteroids[i] < 0 && stack[stack.length - 1] > 0) {
         if (Math.abs(asteroids[i]) > Math.abs(stack[stack.length - 1])) {
